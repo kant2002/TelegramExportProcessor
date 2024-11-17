@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace TelegramExportProcessor;
 
-internal class ComplextTextJsonConverter : JsonConverter<ComplextText>
+internal class CompletTextJsonConverter : JsonConverter<CompletText>
 {
-    public override ComplextText Read(
+    public override CompletText Read(
         ref Utf8JsonReader reader,
         Type typeToConvert,
         JsonSerializerOptions options)
@@ -23,7 +23,7 @@ internal class ComplextTextJsonConverter : JsonConverter<ComplextText>
 
     public override void Write(
         Utf8JsonWriter writer,
-        ComplextText dateTimeValue,
+        CompletText dateTimeValue,
         JsonSerializerOptions options)
     {
         throw new NotImplementedException();
