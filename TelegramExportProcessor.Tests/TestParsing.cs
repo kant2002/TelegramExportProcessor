@@ -8,15 +8,15 @@ public class TestParsing
         var content =
             """
             {
-                "name": "Ринда моніторить",
+                "name": "Назва телеграм каналу",
                 "type": "public_channel",
-                "id": 1875486764,
+                "id": 1234567890,
                 "messages": []
             }
             """;
         var result = ExportParser.ParseChatExport(content);
 
-        await Assert.That(result).IsNotNull().And.HasMember(_ => _.Id).EqualTo(1875486764);
+        await Assert.That(result).IsNotNull().And.HasMember(_ => _.Id).EqualTo(1234567890);
     }
 
     [Test]
@@ -25,19 +25,19 @@ public class TestParsing
         var content =
             """
             {
-                "name": "Ринда моніторить",
+                "name": "Назва телеграм каналу",
                 "type": "public_channel",
-                "id": 1875486764,
+                "id": 1234567890,
                 "messages": [
                   {
                      "id": 1,
                      "type": "service",
                      "date": "2023-04-04T03:06:29",
                      "date_unixtime": "1680559589",
-                     "actor": "Ринда моніторить",
-                     "actor_id": "channel1875486764",
+                     "actor": "Назва телеграм каналу",
+                     "actor_id": "channel1234567890",
                      "action": "create_channel",
-                     "title": "GDZ UA",
+                     "title": "Some Title",
                      "text": "",
                      "text_entities": []
                     }
@@ -57,9 +57,9 @@ public class TestParsing
         var content =
             """
             {
-                "name": "Ринда моніторить",
+                "name": "Назва телеграм каналу",
                 "type": "public_channel",
-                "id": 1875486764,
+                "id": 1234567890,
                 "messages": [
                   {
                     "id": 192,
@@ -68,13 +68,13 @@ public class TestParsing
                     "date_unixtime": "1685315607",
                     "edited": "2023-09-12T22:29:00",
                     "edited_unixtime": "1694539740",
-                    "from": "Ринда моніторить",
-                    "from_id": "channel1875486764",
-                    "text": "✈️БПЛА→Захід через Київщину/Житомирщину",
+                    "from": "Назва телеграм каналу",
+                    "from_id": "channel1234567890",
+                    "text": "✈Текст повідомленння",
                     "text_entities": [
                       {
                         "type": "plain",
-                        "text": "✈️БПЛА→Захід через Київщину/Житомирщину"
+                        "text": "✈Текст повідомленння"
                       }
                     ],
                     "reactions": [
@@ -111,9 +111,9 @@ public class TestParsing
         var content =
             """
             {
-                "name": "Ринда моніторить",
+                "name": "Назва телеграм каналу",
                 "type": "public_channel",
-                "id": 1875486764,
+                "id": 1234567890,
                 "messages": [
                   {
                     "id": 192,
@@ -122,19 +122,19 @@ public class TestParsing
                     "date_unixtime": "1685315607",
                     "edited": "2023-09-12T22:29:00",
                     "edited_unixtime": "1694539740",
-                    "from": "Ринда моніторить",
-                    "from_id": "channel1875486764",
+                    "from": "Назва телеграм каналу",
+                    "from_id": "channel1234567890",
                     "text": [
                       {
                         "type": "italic",
-                        "text": "❗️Загроза «Шахедів» з південного напрямку."
+                        "text": "❗Текст іншого повідомленння"
                       },
                       ""
                     ],
                     "text_entities": [
                       {
                         "type": "plain",
-                        "text": "✈️БПЛА→Захід через Київщину/Житомирщину"
+                        "text": "✈Текст повідомленння"
                       }
                     ],
                     "reactions": [
