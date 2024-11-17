@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelegramExportProcessor;
 
-public class ComplextTextPart
+public class ComplexTextPart
 {
     public string Text { get; set; }
     public string Type { get; set; }

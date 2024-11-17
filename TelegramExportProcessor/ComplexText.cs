@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace TelegramExportProcessor;
 
-[JsonConverter(typeof(CompletTextJsonConverter))]
-public class CompletText
+[JsonConverter(typeof(ComplexTextJsonConverter))]
+public class ComplexText
 {
     public List<TextEntity> Parts { get; } = new List<TextEntity>();
 }
