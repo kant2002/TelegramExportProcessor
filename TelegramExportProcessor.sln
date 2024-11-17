@@ -9,6 +9,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramExportProcessor.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramExportProcessor.Sample", "TelegramExportProcessor.Sample\TelegramExportProcessor.Sample.csproj", "{681354E2-454F-415F-9FA0-05098E93A806}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{56B8CC6A-2EEE-41B2-B2F8-F0619C62D862}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+		.github\dependabot.yml = .github\dependabot.yml
+		.github\workflows\dotnet-ci.yml = .github\workflows\dotnet-ci.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
