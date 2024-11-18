@@ -1,7 +1,7 @@
 ﻿using TelegramExportProcessor;
 
 var exportFile = args[0];
-var chatHistory = await ExportParser.ParseChatExportFile(exportFile);
+var chatHistory = await ExportParser.ParseChatExportFileAsync(exportFile);
 if (chatHistory is null)
 {
     Console.WriteLine($"Cannot parse file {exportFile}");
@@ -13,6 +13,7 @@ var messages = chatHistory.Messages;
 PrintEntityTypes(messages);
 FindAllLinks(messages);
 FindTgChannels(messages);
+FindMentions(messages, "із рук");
 void FindAllLinks(IEnumerable<ChatMessage> entities)
 {
     foreach (var entryType in messages.SelectMany(_ => _.TextEntities.Where(_ => _.Type is "link" or "text_link").Select(_ => _.Href ?? _.Text)).Distinct())
@@ -30,6 +31,20 @@ void FindTgChannels(IEnumerable<ChatMessage> entities)
     foreach (var entryType in links.Where(_ => _.Contains("t.me/")).Select(ExtractTelegramChannelLink).Distinct().Order())
     {
         Console.WriteLine($"{entryType}");
+    }
+}
+
+string FormatMessage(ChatMessage message)
+{
+    return string.Join("", message.TextEntities.Select(_ => _.Text));
+}
+
+void FindMentions(IEnumerable<ChatMessage> entities, string searchString)
+{
+    foreach (var foundMessage in messages.Where(_ => _.TextEntities.Any(_ => _.Text.Contains(searchString))))
+    {
+        Console.WriteLine(FormatMessage(foundMessage));
+        Console.WriteLine("===========================================================");
     }
 }
 
