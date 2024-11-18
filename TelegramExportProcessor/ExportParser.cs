@@ -4,9 +4,16 @@ namespace TelegramExportProcessor;
 
 public sealed class ExportParser
 {
-    public static async Task<ChatExport?> ParseChatExportFile(string file)
+    public static async Task<ChatExport?> ParseChatExportFileAsync(string file)
     {
         var content = await File.ReadAllTextAsync(file);
+
+        return ParseChatExport(content);
+    }
+
+    public static ChatExport? ParseChatExportFile(string file)
+    {
+        var content = File.ReadAllText(file);
 
         return ParseChatExport(content);
     }
