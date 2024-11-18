@@ -11,16 +11,22 @@ Possible message types:
 - message
 
 Possible text entry types:
-- plain
-- italic
-- bold
-- custom_emoji
-- link
 - bank_card
-- code
 - blockquote
-- text_link
+- bold
+- code
+- custom_emoji
+- email
+- hashtag
+- italic
+- link
 - mention
+- phone
+- plain
+- spoiler
+- strikethrough
+- text_link
+- underline
 
 Possible reaction types:
 - emoji

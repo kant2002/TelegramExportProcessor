@@ -8,21 +8,36 @@ if (chatHistory is null)
     return;
 }
 
-Console.WriteLine($"Messages parsed : {chatHistory.Messages.Count}");
-Console.WriteLine($"Entry types:");
-foreach (var entryType in chatHistory.Messages.SelectMany(_ => _.TextEntities.Select(_ => _.Type)).Distinct())
+var messages = chatHistory.Messages;
+
+PrintEntityTypes(messages);
+FindAllLinks(messages);
+void FindAllLinks(IEnumerable<ChatMessage> entities)
 {
-    Console.WriteLine($"Entry type : {entryType}");
+    foreach (var entryType in messages.SelectMany(_ => _.TextEntities.Where(_ => _.Type is "link" or "text_link").Select(_ => _.Href ?? _.Text)).Distinct())
+    {
+        Console.WriteLine($"Link : {entryType}");
+    }
 }
 
-Console.WriteLine($"Message types:");
-foreach (var messageType in chatHistory.Messages.Select(_ => _.Type).Distinct())
+void PrintEntityTypes(IEnumerable<ChatMessage> entities)
 {
-    Console.WriteLine($"Message type : {messageType}");
-}
+    Console.WriteLine($"Messages parsed : {messages.Count}");
+    Console.WriteLine($"Entry types:");
+    foreach (var entryType in messages.SelectMany(_ => _.TextEntities.Select(_ => _.Type)).Distinct().Order())
+    {
+        Console.WriteLine($"Entry type : {entryType}");
+    }
 
-Console.WriteLine($"Reaction types:");
-foreach (var reactionType in chatHistory.Messages.Where(_ => _.Reactions is not null).SelectMany(_ => _.Reactions!.Select(_ => _.Type)).Distinct())
-{
-    Console.WriteLine($"Reaction type : {reactionType}");
+    Console.WriteLine($"Message types:");
+    foreach (var messageType in messages.Select(_ => _.Type).Distinct().Order())
+    {
+        Console.WriteLine($"Message type : {messageType}");
+    }
+
+    Console.WriteLine($"Reaction types:");
+    foreach (var reactionType in messages.Where(_ => _.Reactions is not null).SelectMany(_ => _.Reactions!.Select(_ => _.Type)).Distinct().Order())
+    {
+        Console.WriteLine($"Reaction type : {reactionType}");
+    }
 }

@@ -25,6 +25,31 @@ public class ChatMessage
     // public string? Text { get; set; }
     public string? From { get; set; }
 
+    [JsonPropertyName("forwarded_from")]
+    public string? ForwardedFrom { get; set; }
+
+    public string? Photo { get; set; }
+
+    public string? File { get; set; }
+
+    [JsonPropertyName("file_name")]
+    public string? Filename { get; set; }
+
+    public string? Thumbnail { get; set; }
+
+    [JsonPropertyName("media_type")]
+    public string? MediaType { get; set; }
+
+    [JsonPropertyName("mime_type")]
+    public string? MimeType { get; set; }
+
+    [JsonPropertyName("duration_seconds")]
+    public int? DurationSeconds { get; set; }
+
+    public int? Width { get; set; }
+
+    public int? Height { get; set; }
+
     [JsonPropertyName("from_id")]
     public string? FromId { get; set; }
 
