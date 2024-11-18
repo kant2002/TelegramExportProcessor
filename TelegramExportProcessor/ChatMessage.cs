@@ -31,5 +31,5 @@ public class ChatMessage
     [JsonPropertyName("text_entities")]
     public List<TextEntity> TextEntities { get; set; }
 
-    public List<Reaction> Reactions { get; set; }
+    public List<Reaction>? Reactions { get; set; }
 }

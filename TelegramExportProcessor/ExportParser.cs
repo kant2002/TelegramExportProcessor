@@ -2,7 +2,7 @@
 
 namespace TelegramExportProcessor;
 
-public class ExportParser
+public sealed class ExportParser
 {
     public static async Task<ChatExport?> ParseChatExportFile(string file)
     {
