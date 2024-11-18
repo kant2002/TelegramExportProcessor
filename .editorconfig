@@ -332,7 +332,7 @@ dotnet_diagnostic.SA1117.severity = error # Parameters Must Be On Same Line Or S
 dotnet_diagnostic.SA1118.severity = warning # [ToError] Parameter Must Not Span Multiple Lines
 dotnet_diagnostic.SA1120.severity = error # The C# comment does not contain any comment text.
 dotnet_diagnostic.SA1121.severity = error # The code uses one of the basic C# types, but does not use the built-in alias for the type.
-dotnet_diagnostic.SA1122.severity = error # The C# code includes an empty string, written as “”.
+dotnet_diagnostic.SA1122.severity = none # The C# code includes an empty string, written as “”.
 dotnet_diagnostic.SA1123.severity = error # The C# code contains a region within the body of a code element.
 dotnet_diagnostic.SA1124.severity = error # The C# code contains a region.
 dotnet_diagnostic.SA1125.severity = error # A violation of this rule occurs whenever the Nullable type has been defined without using the shorthand C# style.
@@ -454,6 +454,23 @@ dotnet_diagnostic.SX1309S.severity = none # [Conflict] A static field name does 
 ### Other rules.
 dotnet_diagnostic.CS1591.severity = none # Missing XML comment for publicly visible type or member
 dotnet_diagnostic.CS8618.severity = none # Default value for not nullable types
+csharp_indent_labels = no_change
+csharp_using_directive_placement = outside_namespace:error
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_prefer_braces = true:error
+csharp_style_namespace_declarations = block_scoped:silent
+csharp_style_prefer_method_group_conversion = true:silent
+csharp_style_prefer_top_level_statements = true:silent
+csharp_style_prefer_primary_constructors = true:suggestion
+csharp_prefer_system_threading_lock = true:suggestion
+csharp_style_expression_bodied_methods = false:warning
+csharp_style_expression_bodied_constructors = false:warning
+csharp_style_expression_bodied_operators = false:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+csharp_style_expression_bodied_indexers = true:suggestion
+csharp_style_expression_bodied_accessors = true:suggestion
+csharp_style_expression_bodied_lambdas = when_on_single_line:error
+csharp_style_expression_bodied_local_functions = false:none
 
 ##########################################
 # File Extension Settings
@@ -514,7 +531,7 @@ dotnet_style_prefer_simplified_boolean_expressions = true:warning
 dotnet_style_coalesce_expression = true:warning
 dotnet_style_null_propagation = true:warning
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:warning
-dotnet_style_operator_placement_when_wrapping = beginning_of_line:error
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
 
 # C# Style Rules
 [*.{cs,csx,cake}]
@@ -652,21 +669,21 @@ dotnet_naming_symbols.public_protected_constant_fields_group.applicable_accessib
 dotnet_naming_symbols.public_protected_constant_fields_group.required_modifiers = const
 dotnet_naming_symbols.public_protected_constant_fields_group.applicable_kinds = field
 dotnet_naming_rule.public_protected_constant_fields_must_be_pascal_case_rule.symbols = public_protected_constant_fields_group
-dotnet_naming_rule.public_protected_constant_fields_must_be_pascal_case_rule.style = pascal_case_style
+dotnet_naming_rule.public_protected_constant_fields_must_be_pascal_case_rule.style = disallowed_style
 dotnet_naming_rule.public_protected_constant_fields_must_be_pascal_case_rule.severity = warning
 # All public/protected/protected_internal static readonly fields must be PascalCase
 dotnet_naming_symbols.public_protected_static_readonly_fields_group.applicable_accessibilities = public, protected, protected_internal
 dotnet_naming_symbols.public_protected_static_readonly_fields_group.required_modifiers = static, readonly
 dotnet_naming_symbols.public_protected_static_readonly_fields_group.applicable_kinds = field
 dotnet_naming_rule.public_protected_static_readonly_fields_must_be_pascal_case_rule.symbols = public_protected_static_readonly_fields_group
-dotnet_naming_rule.public_protected_static_readonly_fields_must_be_pascal_case_rule.style = pascal_case_style
+dotnet_naming_rule.public_protected_static_readonly_fields_must_be_pascal_case_rule.style = disallowed_style
 dotnet_naming_rule.public_protected_static_readonly_fields_must_be_pascal_case_rule.severity = warning
 # All private static readonly fields must be camel_case_style_prefixed
 dotnet_naming_symbols.private_protected_static_readonly_fields_group.applicable_accessibilities = private, protected, protected_internal
 dotnet_naming_symbols.private_protected_static_readonly_fields_group.required_modifiers = static, readonly
 dotnet_naming_symbols.private_protected_static_readonly_fields_group.applicable_kinds = field
 dotnet_naming_rule.private_protected_static_readonly_fields_must_be_pascal_case_rule.symbols = private_protected_static_readonly_fields_group
-dotnet_naming_rule.private_protected_static_readonly_fields_must_be_pascal_case_rule.style = camel_case_style_prefixed
+dotnet_naming_rule.private_protected_static_readonly_fields_must_be_pascal_case_rule.style = require_underscore_prefix_and_camel_case
 dotnet_naming_rule.private_protected_static_readonly_fields_must_be_pascal_case_rule.severity = error
 # No other public/protected/protected_internal fields are allowed
 dotnet_naming_symbols.other_public_protected_fields_group.applicable_accessibilities = public, protected, protected_internal
@@ -679,14 +696,14 @@ dotnet_naming_symbols.stylecop_constant_fields_group.applicable_accessibilities 
 dotnet_naming_symbols.stylecop_constant_fields_group.required_modifiers = const
 dotnet_naming_symbols.stylecop_constant_fields_group.applicable_kinds = field
 dotnet_naming_rule.stylecop_constant_fields_must_be_pascal_case_rule.symbols = stylecop_constant_fields_group
-dotnet_naming_rule.stylecop_constant_fields_must_be_pascal_case_rule.style = pascal_case_style
+dotnet_naming_rule.stylecop_constant_fields_must_be_pascal_case_rule.style = disallowed_style
 dotnet_naming_rule.stylecop_constant_fields_must_be_pascal_case_rule.severity = warning
 # All static readonly fields must be PascalCase
 dotnet_naming_symbols.stylecop_static_readonly_fields_group.applicable_accessibilities = public, internal, protected_internal, protected, private_protected, private
 dotnet_naming_symbols.stylecop_static_readonly_fields_group.required_modifiers = static, readonly
 dotnet_naming_symbols.stylecop_static_readonly_fields_group.applicable_kinds = field
 dotnet_naming_rule.stylecop_static_readonly_fields_must_be_pascal_case_rule.symbols = stylecop_static_readonly_fields_group
-dotnet_naming_rule.stylecop_static_readonly_fields_must_be_pascal_case_rule.style = pascal_case_style
+dotnet_naming_rule.stylecop_static_readonly_fields_must_be_pascal_case_rule.style = disallowed_style
 dotnet_naming_rule.stylecop_static_readonly_fields_must_be_pascal_case_rule.severity = warning
 # No non-private instance fields are allowed
 dotnet_naming_symbols.stylecop_fields_must_be_private_group.applicable_accessibilities = public, internal, protected_internal, protected, private_protected
@@ -721,7 +738,7 @@ dotnet_naming_rule.sanity_check_uncovered_field_case_rule.severity = error
 
 dotnet_naming_symbols.element_group.applicable_kinds = namespace, class, enum, struct, delegate, event, method, property
 dotnet_naming_rule.element_rule.symbols = element_group
-dotnet_naming_rule.element_rule.style = pascal_case_style
+dotnet_naming_rule.element_rule.style = disallowed_style
 dotnet_naming_rule.element_rule.severity = warning
 # Interfaces use PascalCase and are prefixed with uppercase 'I'
 dotnet_naming_symbols.interface_group.applicable_kinds = interface
@@ -738,3 +755,4 @@ dotnet_naming_symbols.parameters_group.applicable_kinds = parameter
 dotnet_naming_rule.parameters_rule.symbols = parameters_group
 dotnet_naming_rule.parameters_rule.style = camel_case_style
 dotnet_naming_rule.parameters_rule.severity = warning
+end_of_line = crlf

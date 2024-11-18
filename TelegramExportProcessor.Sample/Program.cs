@@ -12,11 +12,24 @@ var messages = chatHistory.Messages;
 
 PrintEntityTypes(messages);
 FindAllLinks(messages);
+FindTgChannels(messages);
 void FindAllLinks(IEnumerable<ChatMessage> entities)
 {
     foreach (var entryType in messages.SelectMany(_ => _.TextEntities.Where(_ => _.Type is "link" or "text_link").Select(_ => _.Href ?? _.Text)).Distinct())
     {
-        Console.WriteLine($"Link : {entryType}");
+        Console.WriteLine($"Links: {entryType}");
+    }
+}
+
+string ExtractTelegramChannelLink(string telegramLink)
+    => "https://" + string.Join("/", telegramLink.Replace("http://", "").Replace("https://", "").Split("/").Take(2));
+
+void FindTgChannels(IEnumerable<ChatMessage> entities)
+{
+    var links = messages.SelectMany(_ => _.TextEntities.Where(_ => _.Type is "link" or "text_link").Select(_ => _.Href ?? _.Text)).Distinct();
+    foreach (var entryType in links.Where(_ => _.Contains("t.me/")).Select(ExtractTelegramChannelLink).Distinct().Order())
+    {
+        Console.WriteLine($"{entryType}");
     }
 }
 
