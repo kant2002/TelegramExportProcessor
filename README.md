@@ -14,6 +14,8 @@ Possible text entry types:
 - bank_card
 - blockquote
 - bold
+- bot_command
+- cashtag
 - code
 - custom_emoji
 - email
@@ -21,14 +23,17 @@ Possible text entry types:
 - italic
 - link
 - mention
+- mention_name
 - phone
 - plain
+- pre
 - spoiler
 - strikethrough
 - text_link
 - underline
 
 Possible reaction types:
+- custom_emoji
 - emoji
 - paid
 

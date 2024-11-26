@@ -16,7 +16,7 @@ FindTgChannels(messages);
 FindMentions(messages, "із рук");
 void FindAllLinks(IEnumerable<ChatMessage> entities)
 {
-    foreach (var entryType in messages.SelectMany(_ => _.TextEntities.Where(_ => _.Type is "link" or "text_link").Select(_ => _.Href ?? _.Text)).Distinct())
+    foreach (var entryType in messages.SelectMany(_ => _.TextEntities.Where(_ => _.Type is "link" or "text_link").Select(_ => _.Href ?? _.Text)).Distinct().Order())
     {
         Console.WriteLine($"Links: {entryType}");
     }
