@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace TelegramExportProcessor;
 
 [JsonConverter(typeof(ComplexTextJsonConverter))]
 public class ComplexText
 {
-    public List<TextEntity> Parts { get; } = new List<TextEntity>();
+    public List<TextEntity> Parts { get; } = [];
 }
