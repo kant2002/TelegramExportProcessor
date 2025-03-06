@@ -48,7 +48,7 @@ public class TestParsing
 
         var assertionBuilder = await Assert.That(result).IsNotNull();
         await Assert.That(assertionBuilder!.Messages).HasMember(_ => _.Count).EqualTo(1);
-        var message = (await Assert.That(assertionBuilder!.Messages).HasSingleItem())![0];
+        var message = await Assert.That(assertionBuilder!.Messages).HasSingleItem();
     }
 
     [Test]
@@ -102,7 +102,7 @@ public class TestParsing
 
         var assertionBuilder = await Assert.That(result).IsNotNull();
         await Assert.That(assertionBuilder!.Messages).HasMember(_ => _.Count).EqualTo(1);
-        var message = (await Assert.That(assertionBuilder!.Messages).HasSingleItem())![0];
+        var message = await Assert.That(assertionBuilder!.Messages).HasSingleItem();
     }
 
     [Test]
@@ -162,6 +162,6 @@ public class TestParsing
 
         var assertionBuilder = await Assert.That(result).IsNotNull();
         await Assert.That(assertionBuilder!.Messages).HasMember(_ => _.Count).EqualTo(1);
-        var message = (await Assert.That(assertionBuilder!.Messages).HasSingleItem())![0];
+        var message = await Assert.That(assertionBuilder!.Messages).HasSingleItem();
     }
 }
