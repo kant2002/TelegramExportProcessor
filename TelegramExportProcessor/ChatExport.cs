@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-namespace TelegramExportProcessor;
+﻿namespace TelegramExportProcessor;
 
 public class ChatExport
 {
@@ -7,7 +6,7 @@ public class ChatExport
 
     public string Type { get; set; }
 
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     public List<ChatMessage> Messages { get; set; }
 }
