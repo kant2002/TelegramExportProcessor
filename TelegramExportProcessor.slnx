@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".github/dependabot.yml" />
+    <File Path=".github/workflows/dotnet-ci.yml" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="README.md" />
+    <File Path="search_string.fsx" />
+    <File Path="stats.fsx" />
+  </Folder>
+  <Project Path="TelegramExportProcessor.Sample/TelegramExportProcessor.Sample.csproj" />
+  <Project Path="TelegramExportProcessor.Tests/TelegramExportProcessor.Tests.csproj" />
+  <Project Path="TelegramExportProcessor/TelegramExportProcessor.csproj" />
+</Solution>
