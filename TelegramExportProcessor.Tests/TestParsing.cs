@@ -16,7 +16,7 @@ public class TestParsing
             """;
         var result = ExportParser.ParseChatExport(content);
 
-        await Assert.That(result).IsNotNull().And.HasMember(_ => _.Id).EqualTo(1234567890);
+        await Assert.That(result).IsNotNull().And.HasProperty(_ => _.Id).IsEqualTo(1234567890);
     }
 
     [Test]
@@ -47,7 +47,7 @@ public class TestParsing
         var result = ExportParser.ParseChatExport(content);
 
         var assertionBuilder = await Assert.That(result).IsNotNull();
-        await Assert.That(assertionBuilder!.Messages).HasMember(_ => _.Count).EqualTo(1);
+        await Assert.That(assertionBuilder!.Messages).HasProperty(_ => _.Count).IsEqualTo(1);
         var message = await Assert.That(assertionBuilder!.Messages).HasSingleItem();
     }
 
@@ -101,7 +101,7 @@ public class TestParsing
         var result = ExportParser.ParseChatExport(content);
 
         var assertionBuilder = await Assert.That(result).IsNotNull();
-        await Assert.That(assertionBuilder!.Messages).HasMember(_ => _.Count).EqualTo(1);
+        await Assert.That(assertionBuilder!.Messages).HasProperty(_ => _.Count).IsEqualTo(1);
         var message = await Assert.That(assertionBuilder!.Messages).HasSingleItem();
     }
 
@@ -161,7 +161,7 @@ public class TestParsing
         var result = ExportParser.ParseChatExport(content);
 
         var assertionBuilder = await Assert.That(result).IsNotNull();
-        await Assert.That(assertionBuilder!.Messages).HasMember(_ => _.Count).EqualTo(1);
+        await Assert.That(assertionBuilder!.Messages).HasProperty(_ => _.Count).IsEqualTo(1);
         var message = await Assert.That(assertionBuilder!.Messages).HasSingleItem();
     }
 }
